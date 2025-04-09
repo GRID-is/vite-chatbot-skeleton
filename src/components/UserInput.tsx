@@ -19,7 +19,7 @@ export const UserInput = ({ onSend }: { onSend: (msg: string) => void }) => {
         onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
         placeholder="Type a message..."
       />
-      <button className="px-4 py-2 bg-blue-500 text-white rounded" onClick={handleSubmit}>
+      <button className="px-4 py-2 bg-blue-400 text-white rounded" onClick={handleSubmit}>
         Send
       </button>
     </div>
