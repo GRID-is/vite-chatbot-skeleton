@@ -15,9 +15,6 @@ from typing import List, Literal
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-async def root(reqest: Request):
-    return JSONResponse({})
-
 class Message(BaseModel):
     role: Literal["user", "assistant"]
     content: str
@@ -48,7 +45,6 @@ async def chat(request: Request):
 app = Starlette(
     debug=True,
     routes=[
-        Route("/", root),
         Route("/chat", chat, methods=["POST"]),
     ],
     middleware=[Middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"])],
