@@ -1,5 +1,7 @@
 // components/Messages.tsx
 import { Message } from '../types';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 export const Messages = ({ messages }: { messages: Message[] }) => (
   <div className="overflow-y-auto flex-1 p-4 scrollbar-hide">
@@ -10,7 +12,7 @@ export const Messages = ({ messages }: { messages: Message[] }) => (
           msg.role === 'user' ? 'bg-blue-100 self-end' : 'bg-gray-200 self-start'
         }`}
       >
-        {msg.content}
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.content}</ReactMarkdown>
       </div>
     ))}
   </div>
